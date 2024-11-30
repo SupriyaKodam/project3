@@ -24,17 +24,24 @@ const NavBar = () => {
       navigate(path, { state: { sectionId } }); // Passing state for navigation if needed
     } else {
       navigate(path);
-      setSidebarOpen(false); // Close menu after navigating
+      sidebarOpen(false);
+   // Close menu after navigating
     }
   };
 
   // Toggle visibility of the Solutions & Services section
   const toggleSolutions = () => {
     setShowSolutions(!showSolutions);
+    if(sidebarOpen){
+      setSidebarOpen(false);
+    }
   };
 
   const toggleReso = () =>{
     setShowResources(!showResources);
+    if(sidebarOpen){
+      setSidebarOpen(false);
+    }
   }
 
   return (
@@ -75,7 +82,8 @@ const NavBar = () => {
             <span className="text-sm font-semibold cursor-pointer">
               Switch to Mailchimp
             </span>
-            <span className="text-sm font-semibold cursor-pointer">Pricing</span>
+            <span onClick={() => handleNavigation("/pricing")}  className="text-sm font-semibold cursor-pointer">Pricing</span>
+            <button onClick={()=>handleNavigation("/landingpage")} className="text-sm font-semibold cursor-pointer">Landingpage</button>
           </div>
         </div>
 
@@ -90,10 +98,11 @@ const NavBar = () => {
             <ArrowDropDownIcon fontSize="small" />
           </div>
           <span className="text-sm font-semibold">Sales: +1 (800) 315-5939</span>
-          <button className="px-4 py-1 border border-black rounded-full hover:bg-yellow-400 transition text-black">
+          <button onClick={() => handleNavigation('/login')}
+            className="px-4 py-1 border border-black rounded-full hover:bg-yellow-400 transition text-black">
             Login
           </button>
-          <button className="px-4 py-1 border border-black text-black rounded-full hover:bg-yellow-400 transition">
+          <button onClick={()=>handleNavigation('/signup')} className="px-4 py-1 border border-black text-black rounded-full hover:bg-yellow-400 transition">
             Sign Up
           </button>
         </div>
@@ -139,8 +148,13 @@ const NavBar = () => {
             </span>
           </div>
           <div>
-            <span className="block text-lg font-semibold cursor-pointer">
+            <span onClick={() => handleNavigation("/pricing")} className="block text-lg font-semibold cursor-pointer">
               Pricing
+            </span>
+          </div>
+          <div>
+            <span onClick={()=>handleNavigation("/landingpage")} className="block text-lg font-semibold cursor-pointer">
+              Landingpage
             </span>
           </div>
           <hr className="border-gray-300" />
@@ -154,10 +168,10 @@ const NavBar = () => {
             <ArrowDropDownIcon fontSize="small" />
           </div>
           <span className="text-lg font-semibold">Sales: +1 (800) 315-5939</span>
-          <button className="w-full px-4 py-2 border border-black rounded-full hover:bg-yellow-400 transition text-black">
+          <button onClick={() => handleNavigation('/login')} className="w-full px-4 py-2 border border-black rounded-full hover:bg-yellow-400 transition text-black">
             Login
           </button>
-          <button className="w-full px-4 py-2 border border-black text-black rounded-full hover:bg-yellow-400 transition">
+          <button onClick={()=>handleNavigation('/signup')} className="w-full px-4 py-2 border border-black text-black rounded-full hover:bg-yellow-400 transition">
             Sign Up
           </button>
         </div>

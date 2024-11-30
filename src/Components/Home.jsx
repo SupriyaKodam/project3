@@ -1,6 +1,6 @@
 import React from "react";
 
-const HeroSection = () => {
+const Home = () => {
   return (
     <section className="text-gray-600 body-font mt-24 w-screen mb-8 md:mb-40">
       <div className="container mx-auto flex flex-col md:flex-row items-center px-4 py-0">
@@ -42,4 +42,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default Home;

@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from '../Components/Navbar'
-import HeroSection from '../Components/HeroSection'
+import Home from '../Components/Home'
 import HeroSection2 from '../Components/HeroSection2'
 import PricingTable from '../Components/PricingTable'
 import Aboutus from '../Components/Aboutus'
@@ -11,7 +11,7 @@ const Landingpage = () => {
   return (
        <div> 
       <NavBar/>
-      <HeroSection/> 
+      <Home/> 
       <HeroSection2/>
       <PricingTable/>
       <Aboutus/>
