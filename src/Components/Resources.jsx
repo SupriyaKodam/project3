@@ -2,13 +2,13 @@ import React from "react";
 
 const Resources = () => {
   return (
-    <div className="flex py-12 h-screen mt-[120px]">
-      {/* Left side with margin-left, scrollable content, and 1/2 width */}
-      <div className="w-full md:w-3/2 px-6 h-screen overflow-y-auto ml-20 mr-5">
-        <h2 className="text-3xl font-semibold">Resources</h2>
+    <div className="flex flex-col md:flex-row py-12 mt-[120px] px-6 md:px-12">
+      {/* Left side with scrollable content */}
+      <div className="w-full md:w-1/2 h-auto md:h-screen overflow-y-auto mb-8 md:mb-0">
+        <h2 className="text-3xl font-semibold mb-6">Resources</h2>
 
         {/* Grid layout for the sections */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8">
           {/* Section 1 */}
           <div>
             <h3 className="font-semibold text-xl mb-4">Learn with Mailchimp</h3>
@@ -47,7 +47,7 @@ const Resources = () => {
       </div>
 
       {/* Right side */}
-      <div className="w-full h-96 md:w-1/2 px-10 md:pl-12 flex flex-col justify-start space-y-6 mt-5 bg-slate-50">
+      <div className="w-full md:w-1/2 h-auto md:h-screen px-4 md:px-12 flex flex-col space-y-6 bg-slate-50">
         {/* Help Center */}
         <div className="flex items-center space-x-4">
           <span className="text-xl">📚</span>

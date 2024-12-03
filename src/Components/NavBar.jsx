@@ -24,14 +24,14 @@ const NavBar = () => {
       navigate(path, { state: { sectionId } }); // Passing state for navigation if needed
     } else {
       navigate(path);
-      sidebarOpen(false);
+      setSidebarOpen(false);
    // Close menu after navigating
     }
   };
 
   // Toggle visibility of the Solutions & Services section
   const toggleSolutions = () => {
-    setShowSolutions(!showSolutions);
+    setShowSolutions((prev) => !prev);
     if(sidebarOpen){
       setSidebarOpen(false);
     }
@@ -79,7 +79,7 @@ const NavBar = () => {
               <span className="text-sm font-semibold">Resources</span>
               <ArrowDropDownIcon fontSize="small" />
             </div>
-            <span className="text-sm font-semibold cursor-pointer">
+            <span onClick={() => handleNavigation("/mailchimp")} className="text-sm font-semibold cursor-pointer">
               Switch to Mailchimp
             </span>
             <span onClick={() => handleNavigation("/pricing")}  className="text-sm font-semibold cursor-pointer">Pricing</span>
@@ -109,7 +109,7 @@ const NavBar = () => {
       </div>
 
       {/* Solutions & Services Section (Only visible when the button is clicked) */}
-      {showSolutions && <SolutionsAndServices />}
+      {showSolutions && <SolutionsAndServices  closeSolutions={toggleSolutions}/>}
        {/* Display Resources Section */}
        {showResources && <Resources />}
 
@@ -130,12 +130,12 @@ const NavBar = () => {
         {/* Sidebar Content */}
         <div className="mt-20 space-y-6 px-6">
           <div className="flex items-center space-x-1 cursor-pointer">
-            <a
+            <span
               onClick={toggleSolutions} // Toggle visibility of Solutions & Services section
               className="text-lg font-semibold"
             >
               Solutions & Services
-            </a>
+            </span>
             <ArrowDropDownIcon fontSize="small" />
           </div>
           <div onClick={toggleReso} className="flex items-center space-x-1 cursor-pointer">
@@ -143,7 +143,7 @@ const NavBar = () => {
             <ArrowDropDownIcon fontSize="small" />
           </div>
           <div>
-            <span className="block text-lg font-semibold cursor-pointer">
+            <span onClick={() => handleNavigation("/mailchimp")} className="block text-lg font-semibold cursor-pointer">
               Switch to Mailchimp
             </span>
           </div>
